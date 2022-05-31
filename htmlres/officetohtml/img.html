@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Amaze UI Admin log Examples</title>
+    <meta name="description" content="这是一个log页面">
+    <meta name="keywords" content="log">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <link rel="icon" type="image/png" href="../assets/i/favicon.png">
+    <link rel="apple-touch-icon-precomposed" href="../assets/i/app-icon72x72@2x.png">
+    <meta name="apple-mobile-web-app-title" content="Amaze UI" />
+    <link rel="stylesheet" href="../assets/css/amazeui.min.css"/>
+    <link rel="stylesheet" href="../assets/css/admin.css">
+
+    <!--[if lt IE 9]>
+    <script src="http://libs.baidu.com/jquery/1.11.3/jquery.min.js"></script>
+    <script src="http://cdn.staticfile.org/modernizr/2.8.3/modernizr.js"></script>
+    <script src="../assets/js/amazeui.ie8polyfill.min.js"></script>
+    <![endif]-->
+
+    <!--[if (gte IE 9)|!(IE)]><!-->
+    <script src="../assets/js/jquery.min.js"></script>
+    <!--<![endif]-->
+    <script src="../assets/js/amazeui.min.js"></script>
+
+    <script src="../assets/js/app.js"></script>
+
+
+    <script>
+        function watchOnLine(url) {
+            var html = "<img src='" + url + "' style='max-width: 100%'> ";
+            $("#my-popup-content").html(html);
+            $('#my-popup').modal('open');
+        }
+    </script>
+
+</head>
+<body>
+
+<!--不跨域可以下载 跨域不行 -->
+<a href="javascript:watchOnLine('File/1.jpg')">打开</a>
+<a href="File/1.jpg" download="">下载</a>
+
+<div class="am-popup" id="my-popup">
+    <div class="am-popup-inner">
+        <div class="am-popup-hd">
+            <h4 class="am-popup-title">...</h4>
+            <span data-am-modal-close
+                  class="am-close">&times;</span>
+        </div>
+        <div class="am-popup-bd" id="my-popup-content">
+
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
