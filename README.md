@@ -12,4 +12,7 @@
  以后也加入一些js css 等内容
 
 
+230914
+好用的域名
+https://cdn.staticaly.com/gh/heyapei/hypbedforimg@masterProject2205/htmlres/ruoyi/css/bootstrap.min.css
 
