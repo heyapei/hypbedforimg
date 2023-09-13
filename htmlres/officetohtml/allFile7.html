@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Amaze UI Admin log Examples</title>
+    <meta name="description" content="这是一个log页面">
+    <meta name="keywords" content="log">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="Cache-Control" content="no-siteapp"/>
+    <link rel="icon" type="image/png" href="https://rs.yapei.cool/favicon.ico">
+    <link rel="apple-touch-icon-precomposed" href="../assets/i/app-icon72x72@2x.png">
+    <meta name="apple-mobile-web-app-title" content="Amaze UI"/>
+    <link rel="stylesheet" href="../assets/css/amazeui.min.css"/>
+    <link rel="stylesheet" href="../assets/css/admin.css">
+
+    <!--[if lt IE 9]>
+    <script src="http://libs.baidu.com/jquery/1.11.3/jquery.min.js"></script>
+    <script src="http://cdn.staticfile.org/modernizr/2.8.3/modernizr.js"></script>
+    <script src="../assets/js/amazeui.ie8polyfill.min.js"></script>
+    <![endif]-->
+
+    <!--[if (gte IE 9)|!(IE)]><!-->
+    <script src="../assets/js/jquery.min.js"></script>
+    <!--<![endif]-->
+    <script src="../assets/js/amazeui.min.js"></script>
+    <script src="../assets/js/app.js"></script>
+
+
+    <link rel="stylesheet"
+          href="allFileType/officetohtml-v.1.2.1/pages/include/jquery_ui/themes/start/jquery-ui.min.css">
+    <script src="allFileType/officetohtml-v.1.2.1/pages/include/jquery_ui/jquery-ui.min.js"></script>
+    <!-- ################################ For files reder ###############################-->
+    <!--PDF-->
+    <link rel="stylesheet" href="allFileType/officetohtml-v.1.2.1/pages/include/pdf/pdf.viewer.css">
+    <script src="allFileType/officetohtml-v.1.2.1/pages/include/pdf/pdf.js"></script>
+    <!--Docs-->
+    <script src="allFileType/officetohtml-v.1.2.1/pages/include/docx/jszip-utils.js"></script>
+    <script src="allFileType/officetohtml-v.1.2.1/pages/include/docx/mammoth.browser.min.js"></script>
+    <!--PPTX-->
+    <link rel="stylesheet" href="allFileType/officetohtml-v.1.2.1/pages/include/PPTXjs/css/pptxjs.css">
+    <link rel="stylesheet" href="allFileType/officetohtml-v.1.2.1/pages/include/PPTXjs/css/nv.d3.min.css">
+    <script type="text/javascript"
+            src="allFileType/officetohtml-v.1.2.1/pages/include/PPTXjs/js/filereader.js"></script>
+    <script type="text/javascript" src="allFileType/officetohtml-v.1.2.1/pages/include/PPTXjs/js/d3.min.js"></script>
+    <script type="text/javascript" src="allFileType/officetohtml-v.1.2.1/pages/include/PPTXjs/js/nv.d3.min.js"></script>
+    <script type="text/javascript" src="allFileType/officetohtml-v.1.2.1/pages/include/PPTXjs/js/pptxjs.js"></script>
+    <script type="text/javascript"
+            src="allFileType/officetohtml-v.1.2.1/pages/include/PPTXjs/js/divs2slides.js"></script>
+    <!--All Spreadsheet -->
+    <link rel="stylesheet" href="allFileType/officetohtml-v.1.2.1/pages/include/SheetJS/handsontable.full.min.css">
+    <script type="text/javascript"
+            src="allFileType/officetohtml-v.1.2.1/pages/include/SheetJS/handsontable.full.min.js"></script>
+    <script type="text/javascript"
+            src="allFileType/officetohtml-v.1.2.1/pages/include/SheetJS/xlsx.full.min.js"></script>
+    <!--Image viewer-->
+    <link rel="stylesheet"
+          href="allFileType/officetohtml-v.1.2.1/pages/include/verySimpleImageViewer/css/jquery.verySimpleImageViewer.css">
+    <script type="text/javascript"
+            src="allFileType/officetohtml-v.1.2.1/pages/include/verySimpleImageViewer/js/jquery.verySimpleImageViewer.js"></script>
+    <!--officeToHtml-->
+    <script src="allFileType/officetohtml-v.1.2.1/pages/include/officeToHtml/officeToHtml.js"></script>
+    <link rel="stylesheet" href="allFileType/officetohtml-v.1.2.1/pages/include/officeToHtml/officeToHtml.css">
+
+
+    <link rel="stylesheet" href="pdf/css/pdfh5.css"/>
+    <script src="pdf/js/pdf.js" type="text/javascript" charset="utf-8"></script>
+    <script src="pdf/js/pdf.worker.js" type="text/javascript" charset="utf-8"></script>
+    <script src="pdf/js/pdfh5.js" type="text/javascript" charset="utf-8"></script>
+</head>
+
+
+<body>
+
+错误：
+<a href="javascript:watchOfficeOnLine('File/2.ppt')">ppt2预览</a>
+<br>
+<a href="javascript:watchOfficeOnLine('File/1.jpg')">图片预览</a>
+<a href="javascript:watchOfficeOnLine('https://rs.yapei.cool/202204222259817.jpg')">图片预览</a>
+<a href="javascript:watchPdfOnLine('File/1.pdf')">pdf预览</a>
+<a href="javascript:watchTextOnLine('File/1.txt')">txt预览</a>
+<br>
+<a href="javascript:watchOfficeOnLine('File/1.docx')">word预览</a>
+<a href="javascript:watchOfficeOnLine('File/1.xlsx')">excel预览</a>
+<a href="javascript:watchOfficeOnLine('File/2.pptx')">ppt预览</a>
+<br>
+<a href="javascript:watchMp3OnLine('File/1.mp3')">mp3预览</a>
+<a href="javascript:watchMp4OnLine('File/1.mp4')">mp4预览</a>
+
+
+
+
+<script>
+
+
+    function watchImgOnLine(url) {
+        $("#my-popup-content").html("");
+        var html = "<img src='" + url + "' style='max-width: 100%'> ";
+        $("#my-popup-content").html(html);
+        $('#my-popup').modal('open');
+    }
+
+    function watchPdfOnLine(url) {
+        $("#my-popup-content").html("");
+        new Pdfh5('#my-popup-content', {
+            pdfurl: url
+        });
+        $('#my-popup').modal('open');
+    }
+
+    function watchTextOnLine(url) {
+        $("#my-popup-content").html("");
+        let html = "<iframe class='filename' src='" + url + "' width='100%' height='600' frameborder='1' ></iframe>";
+        $("#my-popup-content").html(html);
+        $('#my-popup').modal('open');
+    }
+
+    function watchMp3OnLine(url) {
+        $("#my-popup-content").html("");
+        let html = "<audio id='audioOnLine' controls='' style='display: none;' controlsList=\"nodownload\" οncοntextmenu=\"return false\"></audio> ";
+        $("#my-popup-content").html(html);
+        $("#audioOnLine").attr("src", url);
+        $("#audioOnLine").show();
+        $('#my-popup').modal('open');
+    }
+
+
+    function watchMp4OnLine(url) {
+        $("#my-popup-content").html("");
+        let html = "<video  width=\"100%\" height=\"100%\" src='" + url + "' " +
+            "   controls controlsList=\"nodownload\" disablePictureInPicture=\"true\"  οncοntextmenu=\"return false\" > " +
+            "                        暂不支持播放该格式视频" +
+            "                    </video>";
+        $("#my-popup-content").html(html);
+        $('#my-popup').modal('open');
+    }
+
+
+    function watchOfficeOnLine(url) {
+        if (url.indexOf(".doc") != -1 && url.indexOf(".docx") == -1) {
+            alert("只允许预览创建时就为docx格式的文件");
+            return;
+        }
+        if (url.indexOf(".xls") != -1 && url.indexOf(".xlsx") == -1) {
+            alert("office只允许预览创建时就为xlsx格式的文件");
+            return;
+        }
+        if (url.indexOf(".ppt") != -1 && url.indexOf(".pptx") == -1) {
+            alert("office只允许预览创建时就为pptx格式的文件");
+            return;
+        }
+        if (url.indexOf(".xlsx") != -1 || url.indexOf(".jpg") != -1) {
+            $("#my-popup-content-excel").html("");
+            $("#my-popup-content-excel").officeToHtml({
+                url: url
+                , sheetSetting: {
+                    jqueryui: false,
+                    activeHeaderClassName: "",
+                    allowEmpty: true,
+                    autoColumnSize: true,
+                    autoRowSize: false,
+                    columns: false,
+                    columnSorting: true,
+                    contextMenu: false,
+                    copyable: true,
+                    customBorders: false,
+                    fixedColumnsLeft: 0,
+                    fixedRowsTop: 0,
+                    language: 'en-US',
+                    search: false,
+                    selectionMode: 'single',
+                    sortIndicator: false,
+                    readOnly: false,
+                    startRows: 1,
+                    startCols: 1,
+                    rowHeaders: true,
+                    colHeaders: true,
+                    width: false,
+                    height: false,
+                    cancelable: false
+                }
+            });
+            $('#my-popup-excel').modal('open');
+        } else {
+            $("#my-popup-content").html("");
+            $("#my-popup-content").officeToHtml({
+                url: url,
+                pptxSetting: {
+                    slidesScale: "30%", //Change Slides scale by percent
+                    slideMode: true, /** true,false*/
+                    keyBoardShortCut: true, /** true,false ,condition: slideMode: true*/
+                    mediaProcess: true, /** true,false: if true then process video and audio files */
+                    jsZipV2: false,
+                    slideModeConfig: {
+                        first: 1,
+                        nav: true,
+                        /** true,false : show or not nav buttons*/
+                        navTxtColor: "black",
+                        /** color */
+                        keyBoardShortCut: false,
+                        /** true,false ,condition: */
+                        showSlideNum: true,
+                        /** true,false */
+                        showTotalSlideNum: true,
+                        /** true,false */
+                        autoSlide: 1,
+                        /** false or seconds , F8 to active ,keyBoardShortCut: true */
+                        randomAutoSlide: false,
+                        /** true,false ,autoSlide:true */
+                        loop: true,
+                        /** true,false */
+                        background: false,
+                        /** false or color*/
+                        transition: "default",
+                        /** transition type: "slid","fade","default","random" , to show transition efects :transitionTime > 0.5 */
+                        transitionTime: 1 /** transition time between slides in seconds */
+                    }
+                }
+            });
+            $('#my-popup').modal('open');
+        }
+    }
+
+</script>
+
+
+<div class="am-popup" id="my-popup">
+    <div class="am-popup-inner">
+        <div class="am-popup-hd">
+            <h4 class="am-popup-title">...</h4>
+            <span data-am-modal-close
+                  class="am-close">&times;</span>
+        </div>
+        <div class="am-popup-bd" id="my-popup-content">
+
+        </div>
+    </div>
+</div>
+
+<div class="am-popup" id="my-popup-excel">
+    <div class="am-popup-inner">
+        <div class="am-popup-hd">
+            <h4 class="am-popup-title">...</h4>
+            <span data-am-modal-close
+                  class="am-close">&times;</span>
+        </div>
+        <div class="am-popup-bd">
+            <div style="overflow: hidden;width: 100%; ">
+                <div id="my-popup-content-excel" style="width: 100%; height:550px; overflow: auto;"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $('#my-popup-excel').on('close.modal.amui', function(){
+        $("#my-popup-content-excel").html("");
+    });
+    $('#my-popup').on('close.modal.amui', function(){
+        $("#my-popup-content").html("");
+    });
+</script>
+</body>
+</html>
